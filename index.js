@@ -1,53 +1,66 @@
-import { createBareServer } from "@tomphttp/bare-server-node";
-import express from "express";
-import { createServer } from "node:http";
-import { join } from "node:path";
-import { fileURLToPath } from "node:url";
+import express from 'express';
+import http from 'node:http';
+import { createBareServer } from '@tomphttp/bare-server-node';
+import cors from 'cors';
+import path from "path";
+import { hostname } from "node:os"
 
-const __dirname = join(fileURLToPath(import.meta.url), "..");
-const bare = createBareServer("/b/");
-const app = express();
-const publicPath = "public";
+const server = http.createServer();
+const app = express(server);
+const __dirname = process.cwd();
+const bareServer = createBareServer('/b/');
 
-app.use(express.static(publicPath));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/public'));
+app.use(cors());
 
-app.use((req, res) => {
-    res.status(404);
-    res.sendFile(join(__dirname, publicPath, "404.html"));
-});
-
-const server = createServer();
-
-server.on("request", (req, res) => {
-    if (bare.shouldRoute(req)) {
-        bare.routeRequest(req, res);
+server.on('request', (req, res) => {
+    if (bareServer.shouldRoute(req)) {
+        bareServer.routeRequest(req, res)
     } else {
-        app(req, res);
+        app(req, res)
     }
-});
+})
 
-server.on("upgrade", (req, socket, head) => {
-    if (bare.shouldRoute(req)) {
-        bare.routeUpgrade(req, socket, head);
+server.on('upgrade', (req, socket, head) => {
+    if (bareServer.shouldRoute(req)) {
+        bareServer.routeUpgrade(req, socket, head)
     } else {
-        socket.end();
+        socket.end()
     }
+})
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(process.cwd(), '/public/index.html'));
 });
 
-let port = parseInt(process.env.PORT || "");
+app.get('/index', (req, res) => {
+    res.sendFile(path.join(process.cwd(), '/public/index.html'));
+});
 
-if (isNaN(port)) port = 3000;
+/* add your own extra urls like this:
 
-server.on("listening", () => {
+app.get('/pathOnYourSite', (req, res) => {
+    res.sendFile(path.join(process.cwd(), '/linkToItInYourSource'));
+});
+
+*/
+
+const PORT = 3000;
+server.on('listening', () => {
     const address = server.address();
+
     console.log("Listening on:");
     console.log(`\thttp://localhost:${address.port}`);
+    console.log(`\thttp://${hostname()}:${address.port}`);
     console.log(
-        `\thttp://${
-            address.family === "IPv6" ? `[${address.address}]` : address.address
+        `\thttp://${address.family === "IPv6" ? `[${address.address}]` : address.address
         }:${address.port}`
     );
-});
+})
+
+server.listen({ port: PORT, })
 
 process.on("SIGINT", shutdown);
 process.on("SIGTERM", shutdown);
@@ -55,10 +68,6 @@ process.on("SIGTERM", shutdown);
 function shutdown() {
     console.log("SIGTERM signal received: closing HTTP server");
     server.close();
-    bare.close();
+    bareServer.close();
     process.exit(0);
 }
-
-server.listen({
-    port,
-});
