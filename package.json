@@ -1,38 +1,38 @@
 {
-    "name": "UV on one URL",
-    "description": "A uv bare compatible bare server, on vercel and render",
-    "version": "2.0.1",
-    "homepage": "https://github.com/crllect/focus",
-    "bugs": {
-        "email": "crllect@proton.me"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/crllect/focus-bare.git"
-    },
-    "author": {
-        "name": "crllect",
-        "email": "crllect@proton.me",
-        "url": "https://github.com/crllect"
-    },
-    "keywords": [
-        "proxy",
-        "tomp",
-        "tomphttp"
-    ],
-    "license": "AGPL-3.0",
-    "engines": {
-        "node": ">=18.0.0"
-    },
-    "scripts": {
-        "build": "npm install --global @tomphttp/bare-server-node",
-        "start": "npx bare-server-node"
-    },
-    "dependencies": {
-      "@tomphttp/bare-client": "^2.2.0-alpha",
-      "@tomphttp/bare-server-node": "^2.0.1",
-      "express": "^4.18.2",
-      "cors": "^2.8.5"
-    },
-    "type": "module"
-  }
+  "name": "UV on one URL",
+  "description": "A uv bare compatible bare server, on vercel and render",
+  "version": "2.0.1",
+  "homepage": "https://github.com/crllect/focus",
+  "bugs": {
+    "email": "crllect@proton.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crllect/focus-bare.git"
+  },
+  "author": {
+    "name": "crllect",
+    "email": "crllect@proton.me",
+    "url": "https://github.com/crllect"
+  },
+  "keywords": [
+    "proxy",
+    "tomp",
+    "tomphttp"
+  ],
+  "license": "AGPL-3.0",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "npm install --global @tomphttp/bare-server-node",
+    "start": "npx bare-server-node"
+  },
+  "dependencies": {
+    "@tomphttp/bare-client": "^2.2.0-alpha",
+    "@tomphttp/bare-server-node": "^2.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "type": "module"
+}
