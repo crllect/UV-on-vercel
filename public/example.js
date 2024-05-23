@@ -11,7 +11,7 @@ document.getElementById("searchButton").onclick = function (event) {
     event.preventDefault();
 
     let url = document.getElementById("urlInput").value; // if no periods are detected in the input, search google instead
-    let searchUrl = "https://www.google.com/search?q=";
+    let searchUrl = "https://duckduckgo.com/?q=";
 
     if (!url.includes(".")) {
         url = searchUrl + encodeURIComponent(url);
@@ -23,3 +23,19 @@ document.getElementById("searchButton").onclick = function (event) {
 
     iframeWindow.src = __uv$config.prefix + __uv$config.encodeUrl(url);
 };
+
+// parse the URL parameters
+const urlParams = new URLSearchParams(window.location.search);
+const encodedUrl = urlParams.get('s');
+
+if (encodedUrl) {
+    // decode the base64 encoded URL
+    const decodedUrl = atob(encodedUrl);
+
+    // set the decoded URL to the input field
+    const urlInput = document.getElementById("urlInput");
+    urlInput.value = decodedUrl;
+
+    // trigger the search button click event
+    document.getElementById("searchButton").click();
+}

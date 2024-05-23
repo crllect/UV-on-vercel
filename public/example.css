@@ -16,7 +16,7 @@
     padding-left: 0.5em;
     margin: 0;
     left: 0;
-    top: 0;
+    top: -100vh;
     width: 80vw;
     height: 10vh;
     border: 0;
@@ -30,7 +30,7 @@
     position: absolute;
     margin: 0;
     right: 0;
-    top: 0;
+    top: -100vh;
     width: 20vw;
     height: 10vh;
     border: 0;
