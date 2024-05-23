@@ -11,7 +11,7 @@ document.getElementById("searchButton").onclick = function (event) {
     event.preventDefault();
 
     let url = document.getElementById("urlInput").value; // if no periods are detected in the input, search google instead
-    let searchUrl = "https://www.bing.com/search?go=Search&q=";
+    let searchUrl = "https://www.bing.com/search?q=";
 
     if (!url.includes(".")) {
         url = searchUrl + encodeURIComponent(url);
