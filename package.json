@@ -1,5 +1,5 @@
 {
-  "name": "UV on one URL",
+  "name": "uv-on-one-url",
   "description": "A uv bare compatible bare server, on vercel and render",
   "version": "2.0.1",
   "homepage": "https://github.com/crllect/focus",
