@@ -4,7 +4,7 @@ This guide covers the setup of Ultraviolet (UV), including creating a new basic 
 
 ## PREFACE
 
-This is for guide pre-2.0 UV. If you need help with ^2.0, join the [Titanium Network discord](https://discord.gg/unblock). Again, contact me on discord (@crllect) if you need help with anything. I am usually active from from 7 pm est to 11:30 pm est.
+This is for guide pre-3.0 UV. If you need help with ^3.0, join the [Titanium Network discord](https://discord.gg/unblock). Again, contact me on discord (@crllect) if you need help with anything. I am usually active from from 7 pm est to 11:30 pm est.
 
 ## Step 1: Download the Template
 
@@ -18,11 +18,11 @@ I have attached my own UV files, but they may be out of date. If you dont want t
 
 (so dont modify the template)
 
-### b. Download pre-2.0 Files From the Ultraviolet GitHub
+### b. Download pre-3.0 Files From the Ultraviolet GitHub
 
 1. Delete the UV files in the template
 
-2. Clone the most recent version of Ultraviolet that is **pre-2.0** from [here](https://github.com/titaniumnetwork-dev/Ultraviolet/releases). You can either build it yourself or download the `.tgz` file.
+2. Clone the most recent version of Ultraviolet that is **pre-3.0** from [here](https://github.com/titaniumnetwork-dev/Ultraviolet/releases). You can either build it yourself or download the `.tgz` file.
 
 3. Unzip the downloaded file.
 
@@ -141,7 +141,7 @@ You can start it by typing `node server.js` into the terminal window, you can no
 
 ## Step 6: Deploying It
 
-There are infinitely many ways to do this, replit does not any form of proxies, and has spotty uptime when you can get it to work, so that will usually be a no-go. Many hosts such as vercel are static hosts, meaning they cant support the backend logic required for UltraViolet (atleast on paper).
+There are infinitely many ways to do this, replit does not any form of proxies, and has spotty uptime when you can get it to work, so that will usually be a no-go. Many hosts such as vercel are static hosts, meaning they cant support the backend logic required for UltraViolet (atleast without a little bit of jank).
 
 # Guess what? this is actually my setup for solution one!
 
