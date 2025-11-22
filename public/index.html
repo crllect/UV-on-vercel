@@ -15,6 +15,7 @@
         </script>
 
         <link rel="stylesheet" href="example.css">
+        
     </head>
     <body>
         <input type="text" id="urlInput" placeholder="Enter URL here">
@@ -24,3 +25,67 @@
     </body>
     <script src="example.js"></script>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Simple 8‑Button Menu</title>
+<style>
+    body {
+        margin: 0;
+        background: url('http://raw.githubusercontent.com/SebastianE122782/website-html/main/6045432.jpg') center/cover no-repeat fixed;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .menu {
+        display: grid;
+        grid-template-columns: repeat(4, 150px);
+        gap: 15px;
+        padding: 20px;
+        background: rgba(0,0,0,0.4);
+        border-radius: 14px;
+        backdrop-filter: blur(6px);
+    }
+
+    .btn {
+        width: 150px;
+        height: 150px;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 2px solid rgba(255,255,255,0.3);
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .btn:hover {
+        transform: scale(1.06);
+        border-color: white;
+    }
+
+    .btn img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+</head>
+<body>
+
+<div class="menu">
+    <a class="btn" href="https://example.com/page1  <!-- change this to whatever link you want -->"><img src="IMAGE1_URL_HERE"></a>
+    <a class="btn" href="https://example.com/page2  <!-- change this to whatever link you want -->"><img src="IMAGE2_URL_HERE"></a>
+    <a class="btn" href="https://example.com/page3  <!-- change this to whatever link you want -->"><img src="IMAGE3_URL_HERE"></a>
+    <a class="btn" href="https://example.com/page4  <!-- change this to whatever link you want -->"><img src="IMAGE4_URL_HERE"></a>
+    <a class="btn" href="https://example.com/page5  <!-- change this to whatever link you want -->"><img src="IMAGE5_URL_HERE"></a>
+    <a class="btn" href="https://example.com/page6  <!-- change this to whatever link you want -->"><img src="IMAGE6_URL_HERE"></a>
+    <a class="btn" href="https://example.com/page7  <!-- change this to whatever link you want -->"><img src="IMAGE7_URL_HERE"></a>
+    <a class="btn" href="https://example.com/page8  <!-- change this to whatever link you want -->"><img src="IMAGE8_URL_HERE"></a>
+</div>
+
+</body>
+</html>
+
